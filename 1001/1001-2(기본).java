@@ -7,7 +7,7 @@ public class Main2 {
         int numA = sc.nextInt();
         int numB = sc.nextInt();
 
-        System.out.println(numA + numB);
+        System.out.println(numA - numB);
         sc.close();
     }
 }
