@@ -12,6 +12,6 @@ public class Main {
         int numA = Integer.parseInt(str[0]);
         int numB = Integer.parseInt(str[1]);
 
-        System.out.println(numA -numB);
+        System.out.println(numA - numB);
     }
 }
