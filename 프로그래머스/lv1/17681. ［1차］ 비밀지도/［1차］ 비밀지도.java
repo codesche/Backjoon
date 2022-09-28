@@ -10,8 +10,8 @@ class Solution {
             }
 
             answer[i] = sb.toString();
-            answer[i] = answer[i].replaceAll("1", "#");
-            answer[i] = answer[i].replaceAll("0", " ");
+            answer[i] = answer[i].replace("1", "#");
+            answer[i] = answer[i].replace("0", " ");
         }
         return answer;
     }
