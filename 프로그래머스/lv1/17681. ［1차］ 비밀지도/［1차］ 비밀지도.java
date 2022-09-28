@@ -3,7 +3,7 @@ class Solution {
         String[] answer = new String[n];
 
         for (int i = 0; i < n; i++) {
-            StringBuilder sb = new StringBuilder(Integer.toBinaryString(arr1[i] | arr2[i]));
+            StringBuffer sb = new StringBuffer(Integer.toBinaryString(arr1[i] | arr2[i]));
 
             for (int j = sb.length(); j < n; j++) {
                 sb.insert(0, "0");
