@@ -11,9 +11,9 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr = new int[N];
+        int arr[] = new int[N];
 
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
@@ -21,22 +21,18 @@ public class Main {
         Arrays.sort(arr);
 
         int i = 0;
-        int j = N - 1;
+        int j = arr.length - 1;
         int count = 0;
 
         while (i < j) {
-            if (arr[i] + arr[j] > M) {
-                j--;
-            }
-
-            else if (arr[i] + arr[j] < M) {
+            if (arr[i] + arr[j] < M) {
                 i++;
-            }
-
-            else if (arr[i] + arr[j] == M) {
+            } else if (arr[i] + arr[j] > M) {
+                j--;
+            } else {
+                i++;
+                j--;
                 count++;
-                i++;
-                j--;
             }
         }
         System.out.println(count);
