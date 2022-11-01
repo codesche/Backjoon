@@ -1,1 +1,2 @@
-# Backjoon + Programmers 알고리즘 문제풀이 모음
+1. This is a auto push repository for Baekjoon Online Judge created with BaekjoonHub.
+2. Auto push repository for Programmers Algorithm solutions.
