@@ -22,10 +22,10 @@ public class Main {
 
         int new_size = size / 2;
 
-        partition(row, col, new_size);
-        partition(row, col + new_size, new_size);
-        partition(row + new_size, col, new_size);
-        partition(row + new_size, col + new_size, new_size);
+        partition(row, col, new_size);                                  // 2사분면
+        partition(row, col + new_size, new_size);                       // 1사분면
+        partition(row + new_size, col, new_size);                       // 3사분면
+        partition(row + new_size, col + new_size, new_size);            // 4사분면
     }
 
     // 해당 영역이 같은 색인지 검사
