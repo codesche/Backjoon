@@ -30,8 +30,9 @@ public class Main {
 
     // 해당 영역이 같은 색인지 검사
     public static boolean check(int row, int col, int size) {
-        int value = PaperBoard[row][col];
-
+        int value = PaperBoard[row][col];           // 첫 번째 배열요소 기준
+        
+        // 색상이 다르면 false
         for (int i = row; i < row + size; i++) {
             for (int j = col; j < col + size; j++) {
                 if (value != PaperBoard[i][j]) {
