@@ -1,15 +1,19 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        String[] stArr = String.valueOf(n).split("");
-        Arrays.sort(stArr);
-        
-        StringBuilder sb = new StringBuilder();
-        for (int i = stArr.length - 1; i >= 0; i--) {
-            sb.append(stArr[i]);
+        String temp = "";
+        long answer = 0;
+
+        String str = String.valueOf(n);
+        char[] ch = str.toCharArray();
+        Arrays.sort(ch);
+        for (int i = str.length() - 1; i >= 0; i--) {
+            temp += ch[i];
         }
-        
-        return Long.parseLong(sb.toString());
+
+        answer = Long.parseLong(temp);
+
+        return answer;
     }
 }
