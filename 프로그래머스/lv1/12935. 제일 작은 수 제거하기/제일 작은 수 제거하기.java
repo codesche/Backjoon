@@ -1,25 +1,29 @@
 import java.util.ArrayList;
-import java.util.List;
 
 class Solution {
-     public int[] solution(int[] arr) {
-        if(arr.length == 1) return new int[] {-1};
+    public ArrayList<Integer> solution(int[] arr) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int minValue = Integer.MAX_VALUE;
+        int minIdx = 0;
 
-        // 순서대로 탐색하며 가장 작은 수 찾기
-        int min = Integer.MAX_VALUE;
-        for(int a : arr) {
-            if(min > a)  {
-                min = a;
+        for (int i = 0; i < arr.length; i++) {
+            list.add(arr[i]);
+
+            if (minValue > arr[i]) {
+                minValue = arr[i];
+                minIdx = i;
+            }
+
+            if (i == arr.length - 1) {
+                list.remove(minIdx);
             }
         }
 
-        // 위에서 찾은 가장 작은 수를 제외하고 새로운 배열 만들기
-        int[] newArr = new int[arr.length - 1];
-        int index = 0;
-        for(int a : arr) {
-            if(min != a) newArr[index++] = a;
+        if (arr.length == 1) {
+            list.add(-1);
+            return list;
+        } else {
+            return list;
         }
-
-        return newArr;
     }
 }
