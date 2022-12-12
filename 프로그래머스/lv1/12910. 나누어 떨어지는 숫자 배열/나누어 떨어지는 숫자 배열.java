@@ -1,29 +1,21 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
-    public int[] solution(int[] arr, int divisor) {
-        int count = 0;
+    public ArrayList<Integer> solution(int[] arr, int divisor) {
+        ArrayList list = new ArrayList();
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % divisor == 0) {
-                count++;
-            }
-        }
-
-        if (count == 0) {
-            int[] answer = {-1};
-            return answer;
-        }
-
-        int[] answer = new int[count];
-
-        for (int i = 0, j = 0; i < arr.length; i++) {
-            if (arr[i] % divisor == 0) {
-                answer[j++] = arr[i];
+                list.add(arr[i]);
             }
         }
         
-        Arrays.sort(answer);
-        return answer;
+        Collections.sort(list);
+
+        if (list.isEmpty()) {
+            list.add(-1);
+        }
+
+        return list;
     }
 }
