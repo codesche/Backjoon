@@ -1,24 +1,18 @@
-
-
-public class Solution {
-    public static long solution(long price, long money, long count) {
+class Solution {
+    public long solution(int price, int money, int count) {
         long answer = 0;
-        long sum = 0;
+        long total_price = 0;
 
         for (int i = 1; i <= count; i++) {
-            sum += price * i;
+            total_price += price * i;
         }
 
-        if (money > sum) {
-            answer = 0;
-        } else if (sum > money) {
-            answer = sum - money;
+        if (total_price < money) {
+            return 0;
+        } else {
+            answer = total_price - money;
         }
 
         return answer;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(solution(3, 20,4 ));
     }
 }
