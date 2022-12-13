@@ -1,10 +1,16 @@
-import java.util.Arrays;
+import java.util.*;
 
-public class Solution {
+class Solution {
     public String solution(String s) {
-        char arr[] = s.toCharArray();
-        Arrays.sort(arr);
-        StringBuilder sb = new StringBuilder(new String(arr, 0, arr.length));
-        return sb.reverse().toString();
+        String answer = "";
+        char[] ch = s.toCharArray();
+        
+        Arrays.sort(ch);
+
+        for (int i = ch.length - 1; i >= 0; i--) {
+            answer += ch[i];
+        }
+        
+        return answer;
     }
 }
