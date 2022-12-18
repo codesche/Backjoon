@@ -1,18 +1,22 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.*;
 
 class Solution {
-    public static ArrayList<Integer> solution(int[] numbers) {
-       HashSet<Integer> set = new HashSet<>();
+    public ArrayList solution(int[] numbers) {
+        ArrayList list = new ArrayList();
+        int sum = 0;
 
-        for (int i = 0; i < numbers.length - 1; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
-                set.add(numbers[i] + numbers[j]);
+                sum = numbers[i] + numbers[j];
+
+                if (!list.contains(sum)) {
+                    list.add(sum);
+                }
             }
         }
-        ArrayList<Integer> list = new ArrayList<>(set);
+        
         Collections.sort(list);
+        
         return list;
     }
 }
