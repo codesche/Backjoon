@@ -7,11 +7,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
+        int sum = 0;
         String str = br.readLine();
 
-        int sum = 0;
         for (int i = 0; i < N; i++) {
-            sum += Character.getNumericValue(str.charAt(i));
+            sum += str.charAt(i) - '0';
         }
         System.out.println(sum);
     }
