@@ -12,16 +12,16 @@ class Solution {
         int answer3 = 0;
 
         for (int i = 0; i < answers.length; i++) {
-            if (supo1[i % supo1.length] == answers[i]) {
+            if (supo1[i % 5] == answers[i]) {
                 answer1++;
             }
 
-            if (supo2[i % supo2.length] == answers[i]) {
+            if (supo2[i % 8] == answers[i]) {
                 answer2++;
             }
 
 
-            if (supo3[i % supo3.length] == answers[i]) {
+            if (supo3[i % 10] == answers[i]) {
                 answer3++;
             }
         }
