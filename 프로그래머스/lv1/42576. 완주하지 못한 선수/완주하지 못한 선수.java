@@ -1,21 +1,21 @@
-import java.util.HashMap;
+import java.util.Arrays;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        HashMap<String, Integer> map = new HashMap<>();
-        for (String a : participant) {
-            map.put(a, map.getOrDefault(a, 0) + 1);
-        }
+        String answer = "";
+        // 1. 두 배열을 정렬한다.
+        Arrays.sort(participant);
+        Arrays.sort(completion);
 
-        for (String a : completion) {
-            map.put(a, map.get(a) - 1);
-        }
-
-        for (String key : map.keySet()) {
-            if (map.get(key) != 0) {
-                return key;
+        // 2. 두 배열이 다를 때까지 찾는다.
+        int i = 0;
+        for (; i < completion.length; i++) {
+            if (!participant[i].equals(completion[i])) {
+                break;
             }
         }
-        return null;
+
+        // 3. 여기까지 왔다면, 마지막 주자가 완주하지 못한 선수다.
+        return participant[i];
     }
 }
