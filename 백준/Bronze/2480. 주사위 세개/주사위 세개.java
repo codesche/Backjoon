@@ -1,41 +1,51 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int max = 0;
-        int dice_num = 0;
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
 
-        if (a == b & a == c) {
-            System.out.println(10000 + (a * 1000));
-        } else if (a == b || b == c || a == c) {
-            if (a == b) {
-                dice_num = a;
-            } else if (b == c) {
-                dice_num = b;
-            } else if (a == c) {
-                dice_num = c;
-            }
-            System.out.println(1000 + (dice_num * 100));
-        } else if (a != b & b != c & a != c) {
+        // 세 수가 다 다른 경우
+        if (a != b && b != c && a != c) {
+            int max;
+            // 만약 a > b 라면
             if (a > b) {
-                max = a;
-            } else {
-                max = b;
+                // c > a > b 라면
+                if (c > a) {
+                    max = c;
+                } else {            // a > (b, c)
+                    max = a;
+                }
             }
-            if (max > c) {
-                System.out.println(max * 100);
+
+            else {
+                // c > b > a
+                if (c > b) {
+                    max = c;
+                } else {            // b > (a, c)
+                    max = b;
+                }
+            }
+            System.out.println(max * 100);
+        }
+
+        // 적어도 한 쌍 이상의 서로 같은 변수가 존재한다면
+        else {
+            // 3개의 변수가 모두 같을 때
+            if (a == b && a == c) {
+                System.out.println(10000 + a * 1000);
             } else {
-                System.out.println(c * 100);
+                // a가 b 또는 c와 같은 경우
+                if (a == b || a == c) {
+                    System.out.println(1000 + a * 100);
+                } else {
+                    System.out.println(1000 + b * 100);     // b와 c랑 같은 경우
+                }
             }
         }
     }
