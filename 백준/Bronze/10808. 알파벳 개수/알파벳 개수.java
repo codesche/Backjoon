@@ -1,20 +1,26 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
+
+        char[] S = br.readLine().toCharArray();
+
         int[] arr = new int[26];
 
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            arr[ch - 97]++;         // 개수 1씩 늘려주기
+        for (int i = 0; i < S.length; i++) {
+
+            arr[S[i] - 97] += 1;
+
         }
-        
-        for (int i = 0; i < 26; i++) {
+
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+
+
     }
+
 }
