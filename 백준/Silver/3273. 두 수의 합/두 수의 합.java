@@ -1,18 +1,17 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
+        int N = Integer.parseInt(br.readLine());
+        int[] arr = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
@@ -20,23 +19,23 @@ public class Main {
 
         int x = Integer.parseInt(br.readLine());
 
-        int l = 0;
-        int r = n - 1;
+        int left = 0;
+        int right = N - 1;
         int count = 0;
 
-        while (l < r) {
-            int sum = arr[l] + arr[r];
-
+        while (left < right) {
+            int sum = arr[left] + arr[right];
             // 합이 x보다 크면
             if (sum > x) {
-                r--;
+                right--;
             } else if (sum <= x) {      // 합이 x보다 작거나 같으면
-                l++;
+                left++;
             }
 
             if (sum == x) {
                 count++;
             }
+
         }
         System.out.println(count);
     }
